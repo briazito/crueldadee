@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reino do Briazito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #f2c6c6; /* Rosa claro */
+            color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .comment-section {
+            display: flex;
+            align-items: center;
+        }
+        .comment-section button {
+            background-color: #e0e0e0; /* Cinza claro */
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .comment-section button:hover {
+            background-color: #d0d0d0;
+        }
+        .comments-forum {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .comments-forum h2 {
+            color: #f2c6c6; /* Rosa claro */
+        }
+        .comment-form {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .comment-form button {
+            background-color: #f2c6c6; /* Rosa claro */
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .comment-form button:hover {
+            background-color: #e0a1a1;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Reino do Briazito</div>
+        <div class="comment-section">
+            <button title="Adicionar Comentário">💬</button>
+            <a href="#forum" title="Ver Comentários">📜</a>
+        </div>
+    </header>
+    
+    <section class="comment-form">
+        <h2>Deixe seu Comentário</h2>
+        <textarea id="commentInput" placeholder="Escreva seu comentário aqui..."></textarea>
+        <button onclick="addComment()">Enviar Comentário</button>
+    </section>
+    
+    <section id="forum" class="comments-forum">
+        <h2>Fórum de Comentários</h2>
+        <div id="commentsContainer">
+            <!-- Comentários serão adicionados aqui -->
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Reino do Briazito</p>
+    </footer>
+    
+    <script>
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentsContainer = document.getElementById('commentsContainer');
+            const commentText = commentInput.value.trim();
+            
+            if (commentText) {
+                const commentDiv = document.createElement('div');
+                commentDiv.textContent = commentText;
+                commentDiv.style.padding = '10px';
+                commentDiv.style.borderBottom = '1px solid #ccc';
+                
+                commentsContainer.appendChild(commentDiv);
+                commentInput.value = '';
+            } else {
+                alert('Por favor, escreva um comentário antes de enviar.');
+            }
+        }
+    </script>
+</body>
+</html>
